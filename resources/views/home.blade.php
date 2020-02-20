@@ -12,7 +12,7 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
-                    @endif
+                     @endif
 
                     You are logged in!
                 </div>
@@ -20,4 +20,17 @@
         </div>
     </div>
 </div>
+<br>
+<div class="alert alert-primary" role="alert">
+    A simple primary alert—check it out!
+  </div>
+  <div class="alert alert-primary" role="alert">
+    A simple primary alert—check it out!
+  </div>
+  <div class="alert alert-primary" role="alert">
+    A simple primary alert—check it out!
+  </div>
+
+<button type="button" class="btn btn-dark">Dark</button>
+<button type="button" class="btn btn-outline-primary">Primary</button>
 @endsection

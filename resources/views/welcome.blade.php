@@ -77,7 +77,7 @@
                         @endif
                     @endauth
                 </div>
-            @endif
+                @endif
 
             <div class="content">
                 <div class="title m-b-md">
@@ -96,5 +96,8 @@
                 </div>
             </div>
         </div>
-    </body>
+
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+</body>
 </html>
