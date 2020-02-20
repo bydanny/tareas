@@ -79,11 +79,14 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                   MIS TAREAS {{ $nombre}}
-                </div>
+        <div class="card-body">
+            <div class="{{action('TareaController@create')}}" class="btn btn-success"
+               <hr>
+               Listado
             </div>
         </div>
+
     </body>
+
+
 </html>
