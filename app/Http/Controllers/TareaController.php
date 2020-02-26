@@ -26,6 +26,7 @@ class TareaController extends Controller
      */
     public function create()
     {
+        return view('tareas.tareaform');
         //
     }
 
@@ -38,6 +39,7 @@ class TareaController extends Controller
     public function store(Request $request)
     {
         //
+        return 'DATOS RECIBIDOS';
     }
 
     /**

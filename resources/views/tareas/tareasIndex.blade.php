@@ -77,6 +77,7 @@
                         @endif
                     @endauth
                 </div>
+                <button type="button" class="btn btn-primary">Formulario</button>
             @endif
 
         <div class="card-body">
@@ -84,6 +85,7 @@
                <hr>
                Listado
             </div>
+            <a href="tareas/create"<button type="button" class="btn btn-primary">Formulario</button> </a>
         </div>
 
     </body>
