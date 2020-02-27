@@ -8,60 +8,42 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                     @endif
 
-                    You are logged in!
+                    <form action="{{route('tareas.store')}}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="nombre_tarea">Tarea</label>
+                            <input type="text" class="form-control" name="nombre_tarea" id="nombre_tarea" placeholder="Nombre de la tarea">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="fecha_inicio">Fecha Inicio</label>
+                          <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fecha_termino">Fecha Final</label>
+                            <input type="date" class="form-control" name="fecha_termino" id="fecha_termino">
+                        </div>
+
+                        <label for="prioridad">Prioridad</label>
+                          <select multiple class="form-control" id="prioridad" name="prioridad">
+                            <option>BAJA 1</option>
+                            <option>MEDIA 2</option>
+                            <option>ALTA 3</option>
+                          </select>
+
+                        <div> <button type="submit" class="btn btn-primary" >Submit form</button> </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-<br>
-
-<form action="{{ action('TareaController@store')}}" method="POST">
-    @csrf
-    <div class="form-group">
-        <label for="Nombre Tarea">Tarea</label>
-        <input type="email" class="form-control" id="tarea" placeholder="Matematicas">
-      </div>
 
 
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Email address</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect2">Example multiple select</label>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Example textarea</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
 
 
-<button class="btn btn-primary" type="submit">Submit form</button>
-</form>
 
-@endsection
 
+    @endsection

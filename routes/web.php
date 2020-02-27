@@ -21,4 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-Route::resource('tareas', 'TareaController');
+Route::resource('tareas','TareaController');
