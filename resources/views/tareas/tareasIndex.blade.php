@@ -8,6 +8,8 @@
                Listado
             </div>
             <a href="tareas/create"<button type="button" class="btn btn-primary">Formulario</button> </a>
+
+
         </div>
 
         <table class="table">
@@ -19,7 +21,11 @@
            @foreach($tareas as $mitarea)
             <tr>
             <td>{{$mitarea->id}}</td>
-            <td>{{$mitarea->nombre_tarea}}</td>
+            <td>
+            <a href="{{route('tareas.show',$mitarea->id)}}">
+                {{$mitarea->nombre_tarea}}
+            </td>
+            </a>
             <td>{{$mitarea->prioridad}}</td>
             </tr>
             @endforeach
