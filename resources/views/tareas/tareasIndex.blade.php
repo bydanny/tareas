@@ -16,7 +16,10 @@
             <tr>
                 <th>ID </th>
                 <th> Tarea </th>
-                <th> Descripcion </th>
+                <th> Fecha inicio </th>
+                <th> Fecha termino </th>
+                <th> Estado </th>
+                <th> Prioridad </th>
             </tr>
            @foreach($tareas as $mitarea)
             <tr>
@@ -26,6 +29,9 @@
                 {{$mitarea->nombre_tarea}}
             </td>
             </a>
+            <td>{{$mitarea->fecha_inicio}}</td>
+            <td>{{$mitarea->fecha_termino}}</td>
+            <td>{{$mitarea->estatus}}</td>
             <td>{{$mitarea->prioridad}}</td>
             </tr>
             @endforeach

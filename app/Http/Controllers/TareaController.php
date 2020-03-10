@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Tarea;
+use App\categoria;
+use Illuminate\Cache\RedisTaggedCache;
 use Illuminate\Http\Request;
 
 class TareaController extends Controller
@@ -31,7 +33,9 @@ class TareaController extends Controller
      */
     public function create()
     {
-        return view('tareas.tareaform');
+        $categorias = categoria::all()->pluck('nombre_categoria', 'id');
+        return view('tareas.tareaform',compact('categorias'));
+        dd($categorias); //consultar
         //
     }
 
@@ -49,13 +53,27 @@ class TareaController extends Controller
         //dd($request->fecha_inicio);
       //  return 'DATOS RECIBIDOS';
 
-      $tarea = new Tarea();
-      $tarea->nombre_tarea = $request->nombre_tarea;
+        $request->validate([
+            'nombre_tarea'=> 'required',
+            'fecha_inicio'=> 'required|date',
+            'fecha_termino'=> 'required|date',
+            'prioridad'=> 'required',
+        ]);
+
+       /* $request->merge(['user_id' => \Auth::id()]);
+         //   dd($request->all());
+        Tarea::create($request->all());*/
+
+        Tarea::where('id',$tarea_id)
+                ->update($request->exept('_token','method'));
+     /* $tarea = new Tarea();
+      $tarea->categoria_id = $request->categoria_id;
+      $tarea->nombre_tarea = $request->nombre_tarea ?? '';
       $tarea->fecha_inicio = $request->fecha_inicio;
       $tarea->fecha_termino = $request->fecha_termino;
       $tarea->prioridad = $request->prioridad;
 
-      $tarea->save();
+      $tarea->save();*/
       // dd($tarea);
       return redirect()->route('tareas.index');
 
@@ -95,13 +113,17 @@ class TareaController extends Controller
     public function update(Request $request, Tarea $tarea)
     {
         //
-        $tarea->nombre_tarea = $request->nombre_tarea;
+        $categorias = categoria::all()->pluck('nombre_categoria', 'id');
+        return view('tareas.tareaform',compact('categorias'));
+       /* $tarea->nombre_tarea = $request->nombre_tarea;
+        $tarea->categoria_id = $request->categoria_id;
         $tarea->fecha_inicio = $request->fecha_inicio;
         $tarea->fecha_termino = $request->fecha_termino;
         $tarea->prioridad = $request->prioridad;
 
         $tarea->save();
         return redirect()->route('tareas.show',$tarea->id);
+        */
     }
 
     /**
@@ -113,5 +135,7 @@ class TareaController extends Controller
     public function destroy(Tarea $tarea)
     {
         //
+        $tarea->delete();
+        return redirect()->route('tareas.index');
     }
 }
