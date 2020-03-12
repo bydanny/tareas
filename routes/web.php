@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-
 Route::resource('tareas','TareaController')->middleware('auth')->except('tareas.index');
+
+Route::resource('equipo','EquipoController');

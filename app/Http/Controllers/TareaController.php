@@ -60,9 +60,9 @@ class TareaController extends Controller
             'prioridad'=> 'required',
         ]);
 
-       /* $request->merge(['user_id' => \Auth::id()]);
+        $request->merge(['user_id' => \Auth::id()]);
          //   dd($request->all());
-        Tarea::create($request->all());*/
+        Tarea::create($request->all());
 
         Tarea::where('id',$tarea_id)
                 ->update($request->exept('_token','method'));

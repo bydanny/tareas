@@ -22,7 +22,7 @@ class categoriasTableSeeder extends Seeder
         //$categoria->nombre_categoria = ''
         categoria::create(['nombre_categoria' => 'personal']);
         categoria::create(['nombre_categoria' => 'escuela']);
-        categoria::create(['nombre_categoria' => 'trabajo'], ['nombre_categoria' => 'diversion']);//
+        categoria::create(['nombre_categoria' => 'trabajo']); //, ['nombre_categoria' => 'diversion']);//
         //[ ]
     }
 }
